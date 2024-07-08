@@ -1,14 +1,14 @@
 {
+  "version": "0.1.0",
   "sharedDir": "shared",
   "dependenciesDir": "extern",
-  "version": "0.1.0",
   "info": {
-    "name": "#{name}",
-    "id": "#{id}",
-    "version": "0.1.0",
+    "name": "QuestBurnMarks",
+    "id": "questburnmarks",
+    "version": "1.0.0",
     "url": null,
     "additionalData": {
-      "overrideSoName": "lib#{id}.so",
+      "overrideSoName": "libquestburnmarks.so",
       "cmake": true
     }
   },
@@ -17,15 +17,19 @@
       "build": [
         "pwsh ./scripts/build.ps1"
       ],
-      "clean": ["pwsh ./scripts/build.ps1 -clean"],
+      "clean": [
+        "pwsh ./scripts/build.ps1 -clean"
+      ],
       "copy": [
-        "pwsh ./scripts/copy.ps1 $0:?"
+        "pwsh ./scripts/copy.ps1"
       ],
       "logcat": [
+        "adb logcat -c",
         "pwsh ./scripts/start-logging.ps1"
       ],
       "qmod": [
-        "pwsh ./scripts/build.ps1",
+        "pwsh ./scripts/build.ps1 --release",
+        "qpm qmod manifest",
         "pwsh ./scripts/createqmod.ps1"
       ],
       "restart": [
@@ -36,27 +40,58 @@
       ],
       "tomb": [
         "pwsh ./scripts/pull-tombstone.ps1"
+      ],
+      "format": [
+        "find ./src -name *.cpp -exec clang-format -i {} ;"
       ]
     },
-    "qmodIncludeDirs": ["./build", "./extern/libs"],
-    "qmodOutput": "./#{name}.qmod"
+    "qmodIncludeDirs": [],
+    "qmodIncludeFiles": [],
+    "qmodOutput": null
   },
   "dependencies": [
     {
       "id": "beatsaber-hook",
-      "versionRange": "^5.0.0",
-      "additionalData": {}
-    },
-    {
-      "id": "scotland2",
-      "versionRange": "^0.1.4",
+      "versionRange": "^5.1.9",
       "additionalData": {
-        "includeQmod": false
+        "extraFiles": [
+          "src/inline-hook"
+        ]
       }
     },
     {
+      "id": "config-utils",
+      "versionRange": "^1.4.1",
+      "additionalData": {}
+    },
+    {
       "id": "paper",
-      "versionRange": "^3.0.0",
+      "versionRange": "^3.6.3",
+      "additionalData": {}
+    },
+    {
+      "id": "rapidjson-macros",
+      "versionRange": "^1.2.1",
+      "additionalData": {}
+    },
+    {
+      "id": "bs-cordl",
+      "versionRange": "^3700.0.0",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "^0.17.10",
+      "additionalData": {}
+    },
+    {
+      "id": "bsml",
+      "versionRange": "^0.4.43",
+      "additionalData": {}
+    },
+    {
+      "id": "songcore",
+      "versionRange": "^1.1.14",
       "additionalData": {}
     }
   ]
