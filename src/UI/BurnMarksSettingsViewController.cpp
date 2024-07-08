@@ -1,6 +1,6 @@
 #include "UI/BurnMarksSettingsViewController.hpp"
 #include "bsml/shared/BSML.hpp"
-#include "Utils/UIUtils.hpp"
+
 #include "config.hpp"
 #include "logging.hpp"
 
