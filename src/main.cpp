@@ -1,5 +1,8 @@
 #include "main.hpp"
 
+#include "UI/BurnMarksFlowCoordinator.hpp"
+#include "UI/BurnMarksFlowCoordinator.hpp"
+
 #include "scotland2/shared/modloader.h"
 
 static modloader::ModInfo modInfo{MOD_ID, VERSION, 0};
