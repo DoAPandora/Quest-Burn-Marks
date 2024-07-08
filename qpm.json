@@ -93,6 +93,11 @@
       "id": "songcore",
       "versionRange": "^1.1.14",
       "additionalData": {}
+    },
+    {
+      "id": "bs-utils",
+      "versionRange": "^0.8.4",
+      "additionalData": {}
     }
   ]
 }
