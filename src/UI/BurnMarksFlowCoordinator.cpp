@@ -1,5 +1,5 @@
-#include "UI/Settings/BurnMarksFlowCoordinator.hpp"
-#include "UI/Settings/BurnMarksSettingsViewController.hpp"
+#include "UI/BurnMarksFlowCoordinator.hpp"
+#include "UI/BurnMarksSettingsViewController.hpp"
 
 #include "bsml/shared/BSML.hpp"
 #include "bsml/shared/Helpers/creation.hpp"
