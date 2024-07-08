@@ -19,12 +19,12 @@ namespace BurnMarks::UI
 	{
 		if (firstActivation)
 		{
-			BurnMarksSettingsViewController = BSML::Helpers::CreateViewController<BurnMarksSettingsViewController*>();
+			BurnMarksSettingsViewController = BSML::Helpers::CreateViewController<BurnMarksSettingsViewController*>(); {
 
 			SetTitle("QuestBurnMarks Settings", ViewController::AnimationType::Out);
 			showBackButton = true;
 
-			ProvideInitialViewControllers(BurnMarksSettingsViewController, nullptr, nullptr);
+			ProvideInitialViewControllers(BurnMarksSettingsViewController, nullptr,);
 		}
 
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
