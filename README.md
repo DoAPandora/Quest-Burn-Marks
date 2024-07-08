@@ -1,6 +1,6 @@
-# #BurnMarksQuest
+# BurnMarksQuest
 
-#BurnMarksQuest Is A Mod That Adds Burn Marks To Quest
+BurnMarksQuest Is A Mod That Adds Burn Marks To Quest.
 
 Use `qpm s build` to build
 Same goes for `qpm s copy` and `qpm s qmod`
