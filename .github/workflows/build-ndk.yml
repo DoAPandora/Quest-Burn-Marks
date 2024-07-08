@@ -24,8 +24,8 @@ on:
   pull_request:
     branches: master
 env:
-  module_id: qonsistentsabercolors
-  qmod_name: QonsistentSaberColors
+  module_id: questburnmarks
+  qmod_name: QuestBurnMarks
 jobs:
   build:
     runs-on: ubuntu-latest
