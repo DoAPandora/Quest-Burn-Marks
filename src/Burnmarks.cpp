@@ -3,7 +3,6 @@
 #include "hooks.hpp"
 #include "config.hpp"
 
-#include "GlobalNamespace/MainSettingsModelSO.hpp"
 #include "GlobalNamespace/SaberBurnMarkArea.hpp"
 #include "GlobalNamespace/BoolSO.hpp"
 #include "UnityEngine/Camera.hpp"
@@ -11,9 +10,7 @@
 #include "UnityEngine/Renderer.hpp"
 #include "UnityEngine/Texture2D.hpp"
 #include "UnityEngine/Material.hpp"
-
-MAKE_AUTO_HOOK_MATCH(MainSettingsModelSO_Load, &GlobalNamespace::MainSettingsModelSO::Load, void, GlobalNamespace::MainSettingsModelSO* self, ::GlobalNamespace::ISaveData* saveData, bool forced) {
-	MainSettingsModelSO_Load(self, saveData, forced);
+{
 	self->burnMarkTrailsEnabled->set_value(true);
 }
 
