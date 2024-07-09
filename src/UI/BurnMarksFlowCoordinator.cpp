@@ -15,23 +15,23 @@ using namespace BSML::Lite;
 
 namespace BurnMarks::UI
 
-	void BurnMarksFlowCoordinator::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
+	void BurnMarks::UI::BurnMarksFlowCoordinator::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
 	{
 		if (firstActivation)
 		{
-			BurnMarksSettingsViewController = BSML::Helpers::CreateViewController<BurnMarksSettingsViewController*>(); {
+			//BurnMarksSettingsViewController = BSML::Helpers::CreateViewController<BurnMarksSettingsViewController*>(); {
 
 			SetTitle("QuestBurnMarks Settings", ViewController::AnimationType::Out);
 			showBackButton = true;
 
-			ProvideInitialViewControllers(BurnMarksSettingsViewController, nullptr,);
+			//ProvideInitialViewControllers(BurnMarksSettingsViewController, nullptr,);
 		}
 
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
 	}
 
-	void BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController)
+	void BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController);
 	
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
-		this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false);
+		this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false); {
 }
