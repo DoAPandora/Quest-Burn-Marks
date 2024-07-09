@@ -14,7 +14,7 @@ using namespace HMUI;
 using namespace BSML::Lite;
 
 namespace BurnMarks::UI
-{
+
 	void BurnMarksFlowCoordinator::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
 	{
 		if (firstActivation)
@@ -31,8 +31,7 @@ namespace BurnMarks::UI
 	}
 
 	void BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController)
-	{
+	
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
 		this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false);
-	}
 }
