@@ -18,18 +18,17 @@ using namespace BSML::Lite;
 		SaveConfig(); \
 	});
 
-namespace PinkCore::UI
+namespace BurnMarks::UI
 {
-	void BurnMarksSettingsViewController::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
+	void BurnMarks::UI::BurnMarksSettingsViewController::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
 	{
 		if (firstActivation)
 		{
 			GameObject* container = CreateScrollableSettingsContainer(get_transform());
 
 			TOGGLE(enableBurnMarks, "Enable Quest Burn Marks");
-		} else if (customColourToggle && customColourToggle->m_CachedPtr) {
-			customColourToggle->set_Value(config.enableCustomSongColours);
+		} //else if (customColourToggle && customColourToggle->m_CachedPtr) {
+
 		}
 
 	}
-}
