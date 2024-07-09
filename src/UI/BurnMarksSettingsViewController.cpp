@@ -27,7 +27,7 @@ namespace BurnMarks::UI
 			GameObject* container = CreateScrollableSettingsContainer(get_transform());
 
 			TOGGLE(enableBurnMarks, "Enable Quest Burn Marks");
-		} //else if (customColourToggle && customColourToggle->m_CachedPtr) {
+		}
 
 		}
 

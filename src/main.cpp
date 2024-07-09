@@ -1,7 +1,12 @@
 #include "main.hpp"
+#include "logging.hpp"
+#include "_config.hpp"
 
 #include "UI/BurnMarksFlowCoordinator.hpp"
 #include "UI/BurnMarksFlowCoordinator.hpp"
+#include "bsml/shared/BSML/MainThreadScheduler.hpp"
+#include "bsml/shared/BSML/SharedCoroutineStarter.hpp"
+#include "bsml/shared/BSML.hpp"
 
 #include "scotland2/shared/modloader.h"
 
@@ -32,8 +37,9 @@ MOD_EXTERN_FUNC void setup(CModInfo *info) noexcept {
 // Called later on in the game loading - a good time to install function hooks
 MOD_EXTERN_FUNC void late_load() noexcept {
   il2cpp_functions::Init();
+  BSML::Init();
 
   PaperLogger.info("Installing hooks...");
-
+  BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
   PaperLogger.info("Installed all hooks!");
 }

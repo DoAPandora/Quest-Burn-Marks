@@ -1,36 +1,43 @@
 #include "UI/BurnMarksFlowCoordinator.hpp"
-#include "UI/BurnMarksSettingsViewController.hpp"
 
-#include "bsml/shared/BSML.hpp"
 #include "bsml/shared/Helpers/creation.hpp"
+#include "bsml/shared/Helpers/getters.hpp"
+#include "logging.hpp"
 
-#include "HMUI/TitleViewController.hpp"
-
+#include "GlobalNamespace/MenuTransitionsHelper.hpp"
+#include "UnityEngine/Resources.hpp"
+#include "bsml/shared/BSML/ViewControllers/HotReloadViewController.hpp"
+#include "bsml/shared/BSML/MainThreadScheduler.hpp"
 DEFINE_TYPE(BurnMarks::UI, BurnMarksFlowCoordinator);
 
-using namespace UnityEngine;
-using namespace UnityEngine::UI;
-using namespace HMUI;
-using namespace BSML::Lite;
+void BurnMarks::UI::BurnMarksFlowCoordinator::Awake() {
+    fcInstance = this;
+    if (!settingsView) {
+        settingsView = BSML::Helpers::CreateViewController<BurnMarks::UI::SettingsView*>();
+    }
+}
 
-namespace BurnMarks::UI
+void BurnMarks::UI::BurnMarksFlowCoordinator::DidActivate(bool firstActivation, bool addedToHeirarchy, bool screenSystemEnabling) {
+    if (!firstActivation) return;
 
-	void BurnMarks::UI::BurnMarksFlowCoordinator::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
-	{
-		if (firstActivation)
-		{
-			//BurnMarksSettingsViewController = BSML::Helpers::CreateViewController<BurnMarksSettingsViewController*>(); {
+    SetTitle("Quest Burn Marks", HMUI::ViewController::AnimationType::In);
+    this->____showBackButton = true;
+    ProvideInitialViewControllers(settingsView, nullptr, nullptr);
+}
 
-			SetTitle("QuestBurnMarks Settings", ViewController::AnimationType::Out);
-			showBackButton = true;
+void BurnMarks::UI::BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController) {
+    this->Close();
+}
 
-			//ProvideInitialViewControllers(BurnMarksSettingsViewController, nullptr,);
-		}
+void BurnMarks::UI::BurnMarksFlowCoordinator::Close(bool immediately){
+    // Do nothing if there's no parent flow coordinator (in multiplayer if you never called it it crashed)
+    
+    BSML::MainThreadScheduler::ScheduleAfterTime(1.0f,[this]() {
+        INFO("Saving Burn Marks config...");
+        getBurnMarksConfig().Save();
+    });
 
-		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
-	}
-
-	void BurnMarks::UI::BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController);
-	
-		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
-		//this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false); {
+    if (fcInstance && fcInstance->get_isActiveAndEnabled() && fcInstance->get_isActivated()) {
+        this->____parentFlowCoordinator->DismissFlowCoordinator(this, HMUI::ViewController::AnimationDirection::Horizontal, nullptr, immediately);
+    }
+};
