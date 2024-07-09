@@ -5,10 +5,7 @@
 
 #include "HMUI/ViewController.hpp"
 #include "HMUI/FlowCoordinator.hpp"
-#include "UI/AdvancedSettingsView.hpp"
-#include "UI/PresetsView.hpp"
-#include "UI/SettingsView.hpp"
-
+#include "UI/BurnMarksSettingsViewController.hpp"
 #define GET_FIND_METHOD(mPtr) il2cpp_utils::il2cpp_type_check::MetadataGetter<mPtr>::get()
 
 DECLARE_CLASS_CODEGEN(BurnMarks::UI, BurnMarksFlowCoordinator, HMUI::FlowCoordinator,
