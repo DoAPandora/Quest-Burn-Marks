@@ -30,8 +30,9 @@ namespace BurnMarks::UI
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
 	}
 
-	void BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController);
+{
+	void BurnMarks::UI::BurnMarksFlowCoordinator::BackButtonWasPressed(HMUI::ViewController* topViewController);
 	
 		TitleViewController* titleView = Object::FindObjectOfType<TitleViewController*>();
-		this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false); {
+		//this->_parentFlowCoordinator->DismissFlowCoordinator(this, ViewController::AnimationDirection::Horizontal, nullptr, false); {
 }
