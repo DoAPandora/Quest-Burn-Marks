@@ -28,7 +28,6 @@ on:
 
 env:
     module_id: questburnmarks
-    qmod_name: QuestBurnMarks
 
 jobs:
   build:
