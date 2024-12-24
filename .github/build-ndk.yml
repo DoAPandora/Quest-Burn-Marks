@@ -1,7 +1,7 @@
 name: Build
 
 env:
-  module_id: config-utils_test
+  module_id: questburnmarks
 
 on:
   workflow_dispatch:
