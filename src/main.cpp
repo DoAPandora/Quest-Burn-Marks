@@ -42,6 +42,6 @@ MOD_EXTERN_FUNC void late_load() noexcept {
   BSML::Init();
 
   PaperLogger.info("Installing hooks...");
-  BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
+  //BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
   PaperLogger.info("Installed all hooks!");
 }
