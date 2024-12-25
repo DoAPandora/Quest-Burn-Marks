@@ -3,12 +3,14 @@
 #include "_config.hpp"
 
 #include "UI/BurnMarksFlowCoordinator.hpp"
-#include "UI/BurnMarksFlowCoordinator.hpp"
+#include "UI/BurnMarksSettingsViewController.hpp
 #include "bsml/shared/BSML/MainThreadScheduler.hpp"
 #include "bsml/shared/BSML/SharedCoroutineStarter.hpp"
 #include "bsml/shared/BSML.hpp"
 
 #include "scotland2/shared/modloader.h"
+
+using namespace BurnMarksFlowCoordinator;
 
 static modloader::ModInfo modInfo{MOD_ID, VERSION, 0};
 // Stores the ID and version of our mod, and is sent to
@@ -40,6 +42,6 @@ MOD_EXTERN_FUNC void late_load() noexcept {
   BSML::Init();
 
   PaperLogger.info("Installing hooks...");
-  //BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
+  BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
   PaperLogger.info("Installed all hooks!");
 }
