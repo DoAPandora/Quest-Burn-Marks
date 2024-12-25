@@ -44,5 +44,5 @@
 
     //if (fcInstance && fcInstance->get_isActiveAndEnabled() && fcInstance->get_isActivated()) {
         //this->____parentFlowCoordinator->DismissFlowCoordinator(this, HMUI::ViewController::AnimationDirection::Horizontal, nullptr, immediately);
-    }
+    //}
 //};
