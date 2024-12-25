@@ -10,7 +10,7 @@
 
 #include "scotland2/shared/modloader.h"
 
-using namespace BurnMarksFlowCoordinator;
+//using namespace BurnMarksFlowCoordinator;
 
 static modloader::ModInfo modInfo{MOD_ID, VERSION, 0};
 // Stores the ID and version of our mod, and is sent to
