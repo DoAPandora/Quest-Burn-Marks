@@ -1,103 +1,102 @@
 {
-  "version": "0.1.0",
-  "sharedDir": "shared",
-  "dependenciesDir": "extern",
-  "info": {
-    "name": "QuestBurnMarks",
-    "id": "questburnmarks",
-    "version": "1.0.0-beta",
-    "url": null,
-    "additionalData": {
-      "overrideSoName": "libquestburnmarks.so",
-      "cmake": true
-    }
-  },
-  "workspace": {
-    "scripts": {
-      "build": [
-        "pwsh ./scripts/build.ps1"
-      ],
-      "clean": [
-        "pwsh ./scripts/build.ps1 -clean"
-      ],
-      "copy": [
-        "pwsh ./scripts/copy.ps1"
-      ],
-      "logcat": [
-        "adb logcat -c",
-        "pwsh ./scripts/start-logging.ps1"
-      ],
-      "qmod": [
-        "pwsh ./scripts/build.ps1 --release",
-        "qpm qmod manifest",
-        "pwsh ./scripts/createqmod.ps1"
-      ],
-      "restart": [
-        "pwsh ./scripts/restart-game.ps1"
-      ],
-      "stack": [
-        "pwsh ./scripts/ndk-stack.ps1"
-      ],
-      "tomb": [
-        "pwsh ./scripts/pull-tombstone.ps1"
-      ],
-      "format": [
-        "find ./src -name *.cpp -exec clang-format -i {} ;"
-      ]
-    },
-    "qmodIncludeDirs": [],
-    "qmodIncludeFiles": [],
-    "qmodOutput": null
-  },
-  "dependencies": [
-    {
-      "id": "beatsaber-hook",
-      "versionRange": "^6.0.0",
+   "sharedDir": "shared",
+   "dependenciesDir": "extern",
+   "info": {
+      "name": "QuestBurnMarks",
+      "id": "questburnmarks",
+      "version": "1.0.0",
+      "url": null,
       "additionalData": {
-        "extraFiles": [
-          "src/inline-hook"
-        ]
+         "overrideSoName": "libscoresaber.so",
+         "cmake": true
       }
-    },
-    {
-      "id": "config-utils",
-      "versionRange": "^2.0.0",
-      "additionalData": {}
-    },
-    {
-      "id": "paper",
-      "versionRange": "^3.7.0",
-      "additionalData": {}
-    },
-    {
-      "id": "rapidjson-macros",
-      "versionRange": "^2.0.0",
-      "additionalData": {}
-    },
-    {
-      "id": "bs-cordl",
-      "versionRange": "^3700.0.0",
-      "additionalData": {}
-    },
-    {
-      "id": "custom-types",
-      "versionRange": "^0.17.13",
-      "additionalData": {}
-    },
-    {
-      "id": "bsml",
-      "versionRange": "^0.4.43",
-      "additionalData": {}
-    },
-    {
-      "id": "songcore",
-      "versionRange": "^1.1.15",
-      "additionalData": {}
-    },
-    {
-      "id": "bs-utils",
-      "versionRange": "^0.8.4",
-      "additionalData": {}
-    }
-  ]
+   },
+   "workspace": {
+      "scripts": {
+         "build": [
+            "pwsh ./scripts/build.ps1"
+         ],
+         "clean": [
+            "pwsh ./scripts/build.ps1 -clean"
+         ],
+         "copy": [
+            "pwsh ./scripts/copy.ps1 $0:?"
+         ],
+         "logcat": [
+            "pwsh ./scripts/start-logging.ps1"
+         ],
+         "qmod": [
+            "pwsh ./scripts/build.ps1",
+            "pwsh ./scripts/createqmod.ps1"
+         ],
+         "restart": [
+            "pwsh ./scripts/restart-game.ps1"
+         ],
+         "stack": [
+            "pwsh ./scripts/ndk-stack.ps1"
+         ],
+         "tomb": [
+            "pwsh ./scripts/pull-tombstone.ps1"
+         ]
+      },
+      "qmodIncludeDirs": [
+         "./build",
+         "./extern/libs"
+      ],
+      "qmodOutput": "./ScoreSaber.qmod"
+   },
+   "dependencies": [
+      {
+         "id": "beatsaber-hook",
+         "versionRange": "^5.1.9",
+         "additionalData": {
+            "extraFiles": [
+               "src/inline-hook"
+            ]
+         }
+      },
+      {
+         "id": "scotland2",
+         "versionRange": "^0.1.4",
+         "additionalData": {
+            "includeQmod": false
+         }
+      },
+      {
+         "id": "bs-cordl",
+         "versionRange": "^3700.0.0",
+         "additionalData": {}
+      },
+      {
+         "id": "custom-types",
+         "versionRange": "^0.17.10",
+         "additionalData": {}
+      },
+      {
+         "id": "config-utils",
+         "versionRange": "^1.4.2",
+         "additionalData": {}
+      },
+      {
+         "id": "libcurl",
+         "versionRange": "^8.7.1",
+         "additionalData": {}
+      },
+      {
+         "id": "bsml",
+         "versionRange": "^0.4.43",
+         "additionalData": {}
+      },
+      {
+         "id": "tinyxml2",
+         "versionRange": "^10.0.0",
+         "additionalData": {}
+      },
+      {
+         "id": "paper",
+         "versionRange": "^3.6.4",
+         "additionalData": {}
+      }
+   ],
+   "additionalData": {}
 }
