@@ -3,7 +3,7 @@
 #include "_config.hpp"
 
 #include "UI/BurnMarksFlowCoordinator.hpp"
-#include "UI/BurnMarksSettingsViewController.hpp
+#include "UI/BurnMarksSettingsViewController.hpp"
 #include "bsml/shared/BSML/MainThreadScheduler.hpp"
 #include "bsml/shared/BSML/SharedCoroutineStarter.hpp"
 #include "bsml/shared/BSML.hpp"
