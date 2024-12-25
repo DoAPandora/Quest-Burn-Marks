@@ -11,7 +11,7 @@
 
 using namespace BurnMarksFlowCoordinator;
 
-DEFINE_TYPE(BurnMarks::UI, BurnMarksFlowCoordinator);
+DEFINE_TYPE(BurnMarks::UI::BurnMarksFlowCoordinator);
 
 void BurnMarks::UI::BurnMarksFlowCoordinator::Awake() {
     fcInstance = this;
