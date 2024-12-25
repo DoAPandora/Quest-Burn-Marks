@@ -8,6 +8,9 @@
 #include "UnityEngine/Resources.hpp"
 #include "bsml/shared/BSML/ViewControllers/HotReloadViewController.hpp"
 #include "bsml/shared/BSML/MainThreadScheduler.hpp"
+
+using namespace BurnMarksFlowCoordinator;
+
 DEFINE_TYPE(BurnMarks::UI, BurnMarksFlowCoordinator);
 
 void BurnMarks::UI::BurnMarksFlowCoordinator::Awake() {
