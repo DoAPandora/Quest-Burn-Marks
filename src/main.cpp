@@ -2,8 +2,6 @@
 #include "logging.hpp"
 #include "_config.hpp"
 
-#include "UI/BurnMarksFlowCoordinator.hpp"
-#include "UI/BurnMarksSettingsViewController.hpp"
 #include "bsml/shared/BSML/MainThreadScheduler.hpp"
 #include "bsml/shared/BSML/SharedCoroutineStarter.hpp"
 #include "bsml/shared/BSML.hpp"
@@ -42,6 +40,6 @@ MOD_EXTERN_FUNC void late_load() noexcept {
   BSML::Init();
 
   PaperLogger.info("Installing hooks...");
-  //BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
+  BSML::Register::RegisterMainMenu<BurnMarks::UI::BurnMarksFlowCoordinator*>("Quest Burn Marks");
   PaperLogger.info("Installed all hooks!");
 }
