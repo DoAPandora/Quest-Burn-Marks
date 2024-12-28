@@ -1,6 +1,7 @@
 #include "main.hpp"
 #include "logging.hpp"
 #include "_config.hpp"
+#include "BurnMarksConfig.hpp"
 
 #include "bsml/shared/BSML/MainThreadScheduler.hpp"
 #include "bsml/shared/BSML/SharedCoroutineStarter.hpp"
